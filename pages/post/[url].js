@@ -16,7 +16,7 @@ const getPostByUrl = async (url) => {
 const PostPage = () => {
   const router = useRouter()
   const { url } = router.query
-  const { data, error } = useSWR(`http://localhost:3000/api/post/${url}`, getPostByUrl)
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}${url}`, getPostByUrl)
   if (error) {
     return error.message
   }
