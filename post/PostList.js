@@ -14,7 +14,7 @@ const getPostByUrl = async (url) => {
 }
 
 const PostList = () => {
-	const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}${url}`, getPostByUrl)
+	const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/post`, getPostByUrl)
 	if (error) {
 	  return error.message
 	}
