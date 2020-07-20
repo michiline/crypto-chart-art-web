@@ -1,0 +1,21 @@
+{
+  "name": "crypto-chart-art-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next -p 3002",
+    "build": "next build",
+    "start": "next start -p 3002",
+    "production-start": "npm run build && npm run start"
+  },
+  "author": "equidistant",
+  "license": "ISC",
+  "dependencies": {
+    "next": "9.4.4",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "styled-components": "5.1.1",
+    "swr": "0.2.3"
+  }
+}
