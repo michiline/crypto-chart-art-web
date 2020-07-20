@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "crypto-chart-art-web",
+            "script": "npm",
+            "args" : "run production-start"
+        }
+    ]
+}
