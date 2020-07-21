@@ -8,7 +8,7 @@ import Link from 'next/link'
 const PostPreview = ({ title, longTitle, description, coverImg, created }) => {
 	const router = useRouter()
 	return (
-		<CenterContainer>
+		<RootContainer>
 			<CoverImage src={coverImg} onClick={() => router.push(`/post/${title}`)}/>
 			<Info>
 				<Title onClick={() => router.push(`/post/${title}`)}>{longTitle}</Title>
@@ -22,22 +22,12 @@ const PostPreview = ({ title, longTitle, description, coverImg, created }) => {
 				</BottomRow>
 
 			</Info>
-		</CenterContainer>
+		</RootContainer>
 	)
 }
 
-// const RootContainer = styled.div`
-// 	width: 100%;
-// 	height: min-content;
-// 	display: flex;
-// 	flex-direction: row;
-// 	align-items: center;
-// 	justify-content: center;
-// 	margin-top 100px;
-// `
-
-const CenterContainer = styled.div`
-	width: 100%;
+const RootContainer = styled.div`
+	width: 640px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
