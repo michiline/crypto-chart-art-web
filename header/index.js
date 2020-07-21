@@ -12,7 +12,6 @@ const Header = () => {
 				<Logo onClick={() => router.push('/')}>CryptoChartArt</Logo>
 				<Links>
 					<NavLink href='/' name='HOME'/>
-					<NavLink href='/post' name='POSTS'/>
 				</Links>
 			</CenterContainer>
 		</RootContainer>

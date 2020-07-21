@@ -6,7 +6,7 @@ import { millisToString } from '../../common'
 export async function getStaticPaths() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post`)
   const posts = await res.json()
-
+    console.log(posts)
     const paths = posts.map((post) => ({
       params: { url: post.title },
   }))
@@ -15,7 +15,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post/${params.url}`)
   const post = await res.json()
 
