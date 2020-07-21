@@ -51,6 +51,7 @@ const Info = styled.div`
 `
 
 const Title = styled.h2`
+	color: black;
 	width: 100%;
 	font-size: 30px;
 	&:hover {
@@ -63,6 +64,7 @@ const Title = styled.h2`
 `
 
 const Description = styled.p`
+	color: black;
 	width: 90%;
 	margin-top: 20px;
 	font-size: 16px;
@@ -81,6 +83,7 @@ const BottomRow = styled.div`
 `
 
 const ReadMoreButton = styled.button`
+	color: black;
 	border: none;
 	background-color: transparent;
 	font-size: 16px;
@@ -105,6 +108,7 @@ const CreatedContainer = styled.div`
 
 const Created = styled.p`
 	margin-left: 10px;
+	color: black;
 `
 
 const SLink = styled.a`
