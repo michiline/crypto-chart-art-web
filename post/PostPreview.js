@@ -37,7 +37,7 @@ const RootContainer = styled.div`
 `
 
 const CoverImage = styled.img`
-	width: 100%;
+	width: 640px;
 	&:hover {
 		cursor: pointer;
 	}
