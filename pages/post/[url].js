@@ -13,53 +13,56 @@ const getPostByUrl = async (url) => {
   return response.json()
 }
 
-const PostPage = () => {
+export async function getServerSideProps(context) {
+  const { url } = context.query
+  const data = await fetcher(`${process.env.NEXT_PUBLIC_API_URL}/post/${url}`)
+  return {
+    props: {
+      initialData: data
+    }
+  }
+}
+
+const PostPage = ({ initialData }) => {
   const router = useRouter()
   const { url } = router.query
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/post/${url}`, getPostByUrl, { initialData })
+  if (error) {
+    return error.message
+  }
+  if (!data) {
+    return 'Loading'
+  }
+  const { longTitle, created, coverImg, nodes} = data
+  const html = buildHtml(nodes)
 	return (
-    <div>url</div>
+    <RootContainer>
+      <CoverImage img={coverImg}>
+      <Headers>
+          <H2>
+            {longTitle}
+          </H2>
+          <H3>
+            {millisToString({ date: new Date(created), showHours: false })}
+          </H3>
+        </Headers>
+      </CoverImage>
+      <PostContainer>
+        <CenterContainer>
+          {html}
+        </CenterContainer>
+      </PostContainer>
+      
+    </RootContainer>
   )
 }
-// const PostPage = () => {
-//   const router = useRouter()
-//   const { url } = router.query
-//   const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/post/${url}`, getPostByUrl)
-//   if (error) {
-//     return error.message
-//   }
-//   if (!data) {
-//     return 'Loading'
-//   }
-//   const { longTitle, created, coverImg, nodes} = data
-//   const html = buildHtml(nodes)
-// 	return (
-//     <RootContainer>
-//       <CoverImage img={coverImg}>
-//       <Headers>
-//           <H2>
-//             {longTitle}
-//           </H2>
-//           <H3>
-//             {millisToString({ date: new Date(created), showHours: false })}
-//           </H3>
-//         </Headers>
-//       </CoverImage>
-//       <PostContainer>
-//         <CenterContainer>
-//           {html}
-//         </CenterContainer>
-//       </PostContainer>
-      
-//     </RootContainer>
-//   )
-// }
 
 const buildHtml = (tags) => {
-	return tags.map(({ name, data }, index) => {
+  const html = tags.map(({ name, data }, index) => {
 	  switch(name) {
 		case 'H1': {
-		  return (
-			<h1 key={index}>{data}</h1>
+ 		  return (
+  			<h1 key={index}>{data}</h1>
 		  )
 		}
 		case 'TXT':
@@ -68,17 +71,18 @@ const buildHtml = (tags) => {
 		  )
 		case 'IMG': 
 		  return (
-        <ImageLink href={data}>
+        <ImageLink key={`${index}i`} href={data}>
 			    <Image src={data} key={index}/>
         </ImageLink>
 
 		  )
 		default: 
 		  return (
-			<div key={index}>{data}</div>
+			  <div key={index}>{data}</div>
 		  )
 	  }
 	})
+  return html
   }
 
 const RootContainer = styled.div`
