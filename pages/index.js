@@ -13,6 +13,11 @@ export async function getStaticProps() {
 }
 
 const HomePage = ({ posts }) => {
+  const postPreviews = posts.map((post, index) => {
+    return (
+      <PostPreview {...post} key={index} />
+    )
+  })
 	return (
     <RootContainer>
       <CoverContainer img={homeImg}>
@@ -25,11 +30,7 @@ const HomePage = ({ posts }) => {
           </H3>
         </Headers>
       </CoverContainer>
-      {posts.map((post, index) => {
-				return (
-					<PostPreview {...post} key={index} />
-				)
-			})}
+      {postPreviews}
     </RootContainer>
   )
 }
