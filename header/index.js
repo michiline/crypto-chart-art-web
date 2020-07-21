@@ -9,7 +9,7 @@ const Header = () => {
 	return (
 		<RootContainer scrolled={scrolled}>
 			<CenterContainer>
-				<Logo onClick={() => router.push('/')}>CryptoChartArt</Logo>
+				<Logo onClick={() => router.push('/', '/', { shallow: true })}>CryptoChartArt</Logo>
 				<Links>
 					<NavLink href='/' name='HOME'/>
 				</Links>
