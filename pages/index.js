@@ -14,7 +14,6 @@ const HomePage = () => {
             Charts, coin analysis, altcoin picks
           </H3>
         </Headers>
-
       </CoverContainer>
       <PostList />
     </RootContainer>

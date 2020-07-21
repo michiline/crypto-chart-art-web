@@ -16,36 +16,43 @@ const getPostByUrl = async (url) => {
 const PostPage = () => {
   const router = useRouter()
   const { url } = router.query
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/post/${url}`, getPostByUrl)
-  if (error) {
-    return error.message
-  }
-  if (!data) {
-    return 'Loading'
-  }
-  const { longTitle, created, coverImg, nodes} = data
-  const html = buildHtml(nodes)
 	return (
-    <RootContainer>
-      <CoverImage img={coverImg}>
-      <Headers>
-          <H2>
-            {longTitle}
-          </H2>
-          <H3>
-            {millisToString({ date: new Date(created), showHours: false })}
-          </H3>
-        </Headers>
-      </CoverImage>
-      <PostContainer>
-        <CenterContainer>
-          {html}
-        </CenterContainer>
-      </PostContainer>
-      
-    </RootContainer>
+    <div>hello</div>
   )
 }
+// const PostPage = () => {
+//   const router = useRouter()
+//   const { url } = router.query
+//   const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/post/${url}`, getPostByUrl)
+//   if (error) {
+//     return error.message
+//   }
+//   if (!data) {
+//     return 'Loading'
+//   }
+//   const { longTitle, created, coverImg, nodes} = data
+//   const html = buildHtml(nodes)
+// 	return (
+//     <RootContainer>
+//       <CoverImage img={coverImg}>
+//       <Headers>
+//           <H2>
+//             {longTitle}
+//           </H2>
+//           <H3>
+//             {millisToString({ date: new Date(created), showHours: false })}
+//           </H3>
+//         </Headers>
+//       </CoverImage>
+//       <PostContainer>
+//         <CenterContainer>
+//           {html}
+//         </CenterContainer>
+//       </PostContainer>
+      
+//     </RootContainer>
+//   )
+// }
 
 const buildHtml = (tags) => {
 	return tags.map(({ name, data }, index) => {

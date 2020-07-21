@@ -8,43 +8,42 @@ import Link from 'next/link'
 const PostPreview = ({ title, longTitle, description, coverImg, created }) => {
 	const router = useRouter()
 	return (
-		<RootContainer>
-			<CenterContainer>
-				<CoverImage src={coverImg} onClick={() => router.push(`/post/${title}`)}/>
-				<Info>
-					<Title onClick={() => router.push(`/post/${title}`)}>{longTitle}</Title>
-					<Description>{description}...</Description>
-					<BottomRow>
-						<CreatedContainer>
-							<CalendarIcon/>
-							<Created>{millisToString({ date: new Date(created), showHours: false})}</Created>
-						</CreatedContainer>
-						<ReadMore href={`/post/${title}`} name='READ MORE'/>
-					</BottomRow>
+		<CenterContainer>
+			<CoverImage src={coverImg} onClick={() => router.push(`/post/${title}`)}/>
+			<Info>
+				<Title onClick={() => router.push(`/post/${title}`)}>{longTitle}</Title>
+				<Description>{description}...</Description>
+				<BottomRow>
+					<CreatedContainer>
+						<CalendarIcon/>
+						<Created>{millisToString({ date: new Date(created), showHours: false})}</Created>
+					</CreatedContainer>
+					<ReadMore href={`/post/${title}`} name='READ MORE'/>
+				</BottomRow>
 
-				</Info>
-			</CenterContainer>
-			
-		</RootContainer>
+			</Info>
+		</CenterContainer>
 	)
 }
 
-const RootContainer = styled.div`
-	width: 100%;
-	height: min-content;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	margin-top 100px;
-`
+// const RootContainer = styled.div`
+// 	width: 100%;
+// 	height: min-content;
+// 	display: flex;
+// 	flex-direction: row;
+// 	align-items: center;
+// 	justify-content: center;
+// 	margin-top 100px;
+// `
 
 const CenterContainer = styled.div`
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	opacity: 1;
 	padding-bottom: 30px;
+	margin-top: 100px;
 `
 
 const CoverImage = styled.img`
