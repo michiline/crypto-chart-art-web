@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { homeImg } from '../../images'
+import { postsImg } from '../../images'
 import { PostPreview } from '../../components'
 
 export async function getStaticProps() {
@@ -20,7 +20,7 @@ const HomePage = ({ posts }) => {
   })
 	return (
     <RootContainer>
-      <CoverContainer img={homeImg}>
+      <CoverContainer img={postsImg}>
         <Headers>
           <H2>
           Always fresh cryptocurrency posts

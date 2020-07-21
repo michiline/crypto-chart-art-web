@@ -41,7 +41,6 @@ const RootContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: red;
 `
 
 const CoverContainer = styled.div`
