@@ -6,7 +6,6 @@ import { millisToString } from '../../common'
 export async function getStaticPaths() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post`)
   const posts = await res.json()
-    console.log(posts)
     const paths = posts.map((post) => ({
       params: { url: post.title },
   }))
