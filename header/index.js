@@ -13,8 +13,6 @@ const Header = () => {
 				<Links>
 					<NavLink href='/' name='HOME'/>
 					<NavLink href='/post' name='POSTS'/>
-					<NavLink href='/about' name='ABOUT'/>
-					<NavLink href='/join' name='JOIN US'/>
 				</Links>
 			</CenterContainer>
 		</RootContainer>
