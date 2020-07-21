@@ -22,21 +22,16 @@ const PostList = () => {
 	  return 'Loading'
 	}
 	return (
-		<RootContainer>
+		<>
 			{data.map((post, index) => {
 				return (
 					<PostPreview {...post} key={index} />
 				)
 			})}
-		</RootContainer>
+		</>
+
 	)
 }
 
-const RootContainer = styled.div`
-	width: 100%;
-	height: min-content;
-	max-width: 640px;
-	padding-bottom: 100px;
-`
 
 export default PostList
