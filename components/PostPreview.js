@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import { CalendarIcon } from '../components'
+import { CalendarIcon } from '.'
 import { millisToString } from '../common'
 import Link from 'next/link'
 

@@ -17,7 +17,7 @@ const PostPage = () => {
   const router = useRouter()
   const { url } = router.query
 	return (
-    <div>hello</div>
+    <div>url</div>
   )
 }
 // const PostPage = () => {

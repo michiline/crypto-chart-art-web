@@ -1,23 +1,23 @@
 import styled from 'styled-components'
 import { postsImg } from '../../images'
-import { PostList } from '../../post'
 
 const HomePage = () => {
 	return (
-    <RootContainer>
-      <CoverContainer img={postsImg}>
-        <Headers>
-          <H2>
-            Always fresh cryptocurrency posts
-          </H2>
-          <H3>
-            TA, price predictions, comments
-          </H3>
-        </Headers>
+    <div>all posts</div>
+    // <RootContainer>
+    //   <CoverContainer img={postsImg}>
+    //     <Headers>
+    //       <H2>
+    //         Always fresh cryptocurrency posts
+    //       </H2>
+    //       <H3>
+    //         TA, price predictions, comments
+    //       </H3>
+    //     </Headers>
 
-      </CoverContainer>
-      <PostList />
-    </RootContainer>
+    //   </CoverContainer>
+    //   <PostList />
+    // </RootContainer>
   )
 }
 

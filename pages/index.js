@@ -1,8 +1,18 @@
 import styled from 'styled-components'
 import { homeImg } from '../images'
-import { PostList } from '../post'
+import { PostPreview } from '../components'
 
-const HomePage = () => {
+export async function getStaticProps() {
+	const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post`)
+	  const posts = await res.json()
+	  return {
+		  props: {
+			  posts
+		  }
+	  }
+}
+
+const HomePage = ({ posts }) => {
 	return (
     <RootContainer>
       <CoverContainer img={homeImg}>
@@ -15,7 +25,11 @@ const HomePage = () => {
           </H3>
         </Headers>
       </CoverContainer>
-      <PostList />
+      {posts.map((post, index) => {
+				return (
+					<PostPreview {...post} key={index} />
+				)
+			})}
     </RootContainer>
   )
 }
