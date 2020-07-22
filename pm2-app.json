@@ -3,7 +3,7 @@
         {
             "name": "crypto-chart-art-web",
             "script": "npm",
-            "args" : "run start
+            "args" : "run start"
         }
     ]
 }
