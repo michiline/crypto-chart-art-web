@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 3002",
-    "build": "next build && next export",
-    "start": "next start -p 3002",
-    "production-start": "npm run build && npm run start"
+    "dev": "next",
+    "build": "next build",
+    "preexport": "npm run build",
+    "export": "next export",
+    "prestart": "npm run export",
+    "start": "serve -l 3002 out"
   },
   "author": "equidistant",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "serve": "11.3.2",
     "styled-components": "5.1.1",
     "swr": "0.2.3"
   }
