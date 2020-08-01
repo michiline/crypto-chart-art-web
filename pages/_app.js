@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import App from 'next/app'
 import GlobalStyle from '../style/global'
-import Header from '../header'
+import { Header, Footer } from '../components'
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
 			<GlobalStyle/>
 			<Header/>
 			<Component {...pageProps} />
+			<Footer />
 		</>
 	)
 }

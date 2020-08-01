@@ -10,3 +10,8 @@ export const millisToString = ({ date = new Date(Date.now()), showHours = true }
 	}
 	return string
   }
+
+export const externalLink = ({e, url }) => {
+	e.preventDefault()
+	Object.assign(document.createElement('a'), { target: '_blank', href: url }).click()
+}

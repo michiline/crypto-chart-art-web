@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
-import { millisToString } from '../../common'
+import { millisToString } from '../common'
 
 export async function getStaticPaths() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post`)

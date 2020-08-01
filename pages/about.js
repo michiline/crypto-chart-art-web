@@ -1,27 +1,20 @@
 import styled from 'styled-components'
-import { useRouter } from 'next/router'
-import { homeImg, altcoinPicksImg, chartsImg, coinAnalysisImg } from '../images'
+import { aboutImg, aboutUsImg } from '../images'
 import { HiveIcon, TwitterIcon } from '../components'
 import { externalLink } from '../common'
 
-const HomePage = ({ posts }) => {
-  const router = useRouter()
+const AboutPage = ({ posts }) => {
 	return (
     <RootContainer>
-      <CoverContainer img={homeImg}>
+      <CoverContainer img={aboutImg}>
         <Headers>
           <H2>
-            CCA Trading Group
+            Who are we?
           </H2>
           <H3>
-            Charts, coin analysis, altcoin picks
+            A group of traders, developers and crypto enthusiasts
           </H3>
         </Headers>
-        <ButtonRow>
-          <JoinUsButton onClick={() => router.push('/join')}>
-            Join us
-          </JoinUsButton>
-        </ButtonRow>
         <Social>
           <SocialLink href='https://twitter.com/CryptoChartArt' onClick={(e) => externalLink({e, url: 'https://twitter.com/CryptoChartArt'})}>
             <TwitterIcon />
@@ -33,31 +26,20 @@ const HomePage = ({ posts }) => {
       </CoverContainer>
       <MainContainer>
         <ContentRow>
-          <Image src={chartsImg}/>
+          <Image src={aboutUsImg}/>
           <TextColumn>
-            <TextHeader>Crypto charts and posts</TextHeader>
+            <TextHeader>About us</TextHeader>
             <Text>
-              All relevant information about the crypto markets in one place.
-              We are sharing facts from the past, opinions about the present and predictions about the future price movemenets.
+              We're a group of traders, developers and enthusiasts that was united in our love for crypto.
             </Text>
-          </TextColumn>
-        </ContentRow>
-        <ContentRow>
-          <TextColumn>
-            <TextHeader>In depth coin analysis</TextHeader>
             <Text>
-              We give 100% in each of our anaylsis.
-              It doesn't matter if you are a beginner or a veteran trader, you'll find something for yourself among the data we provide.</Text>
-          </TextColumn>
-          <Image src={coinAnalysisImg}/>
-        </ContentRow>
-        <ContentRow>
-          <Image src={altcoinPicksImg}/>
-          <TextColumn>
-            <TextHeader>Profitable trading setups</TextHeader>
+              Finally we decided that it is the right time to share knowledge we gathered over the years.
+            </Text>
             <Text>
-              Whether you want to sit in front on the screen daily, or just buy in and wait for the profit, we got you covered.
-              We provide you with long term and short term trading plans.
+              The span of our interests ranges from technical analysis of cryptocurrencies to building specialized trading platforms.
+            </Text>
+            <Text>
+              All of our ideas and visions stem from our of own research and years of experience.
             </Text>
           </TextColumn>
         </ContentRow>
@@ -65,22 +47,6 @@ const HomePage = ({ posts }) => {
     </RootContainer>
   )
 }
-
-// export async function getStaticProps() {
-// 	const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post`)
-// 	  const posts = await res.json()
-// 	  return {
-// 		  props: {
-// 			  posts
-// 		  }
-// 	  }
-// }
-
-// const postPreviews = posts.map((post, index) => {
-//   return (
-//     <PostPreview {...post} key={index} />
-//   )
-// })
 
 const RootContainer = styled.div`
   width: 100%;
@@ -93,7 +59,7 @@ const RootContainer = styled.div`
 const CoverContainer = styled.div`
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(0deg, #005cb26B, #1A1A1D), url(${props => props.img});
+  background-image: linear-gradient(0deg, #005cb24B, #1A1A1D), url(${props => props.img});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -109,37 +75,6 @@ const Headers = styled.div`
   width: 1100px;
   display: flex;
   flex-direction: column;
-`
-
-const ButtonRow = styled.div`
-  width: 1100px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-`
-
-const JoinUsButton = styled.button`
-  color: white;
-  border: 2px solid white;
-  font-size: 20px;
-  background-color: transparent;
-  height: 60px;
-  width: 300px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  display: block;
-  margin-top: 20px;
-  cursor: pointer;
-  transition-property: color, background-color;
-	transition-duration: 300ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
-    background-color: white;
-    color: #005cb2;
-  }
-  &:active {
-    transform: translateY(2px);
-  }
 `
 
 const Social = styled.div`
@@ -219,5 +154,24 @@ const TextHeader = styled.h4`
   color: #005cb2;
 `
 
-export default HomePage
+const ExternalLink = styled.a`
+  color: #005cb2;
+	text-decoration: none;
+	transition-property: color;
+	transition-duration: 300ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	&:hover {
+	  color: #005cb27A;
+	}
+	&:active {
+	transform: translateY(2px);
+	}
+	margin-top: 5px;
+	&:first-of-type {
+		margin-top: 10px;
+  }
+  font-weight: 700;
+`
+
+export default AboutPage
   

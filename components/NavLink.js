@@ -5,6 +5,9 @@ const SLink = styled.a`
   color: white;
   text-decoration: none;
   margin-left: 40px;
+  transition-property: color;
+	transition-duration: 300ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     color: #005cb2;
   }
